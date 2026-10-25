@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="360" viewBox="0 0 920 360" font-family="Arial, Helvetica, sans-serif">
+  <rect width="920" height="360" fill="white"/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+    <marker id="arrow-dashed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#888"/>
+    </marker>
+  </defs>
+
+  <!-- Producer -->
+  <rect x="20" y="130" width="210" height="110" rx="8" fill="#e8f0fe" stroke="#333" stroke-width="1.5"/>
+  <text x="125" y="160" text-anchor="middle" font-size="16" font-weight="bold">Order Producer</text>
+  <text x="125" y="184" text-anchor="middle" font-size="13">producer.py</text>
+  <text x="125" y="206" text-anchor="middle" font-size="13">independent process</text>
+
+  <!-- Queue -->
+  <rect x="360" y="130" width="210" height="110" rx="8" fill="#fef3c7" stroke="#333" stroke-width="1.5"/>
+  <text x="465" y="160" text-anchor="middle" font-size="16" font-weight="bold">RabbitMQ</text>
+  <text x="465" y="184" text-anchor="middle" font-size="13">queue: "orders"</text>
+  <text x="465" y="206" text-anchor="middle" font-size="13">prefetch_count = 1</text>
+
+  <!-- Worker 1 -->
+  <rect x="700" y="30" width="200" height="110" rx="8" fill="#dcfce7" stroke="#333" stroke-width="1.5"/>
+  <text x="800" y="60" text-anchor="middle" font-size="16" font-weight="bold">Order Worker 1</text>
+  <text x="800" y="84" text-anchor="middle" font-size="13">worker.py (worker-1)</text>
+  <text x="800" y="106" text-anchor="middle" font-size="13">processed event_ids (set)</text>
+
+  <!-- Worker 2 -->
+  <rect x="700" y="230" width="200" height="110" rx="8" fill="#dcfce7" stroke="#333" stroke-width="1.5"/>
+  <text x="800" y="260" text-anchor="middle" font-size="16" font-weight="bold">Order Worker 2</text>
+  <text x="800" y="284" text-anchor="middle" font-size="13">worker.py (worker-2)</text>
+  <text x="800" y="306" text-anchor="middle" font-size="13">processed event_ids (set)</text>
+
+  <!-- Arrows: producer -> queue -->
+  <line x1="230" y1="185" x2="355" y2="185" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="292" y="170" text-anchor="middle" font-size="12">publish JSON</text>
+  <text x="292" y="220" text-anchor="middle" font-size="12">event_id, order_id,</text>
+  <text x="292" y="236" text-anchor="middle" font-size="12">item_id, quantity</text>
+
+  <!-- Arrows: queue -> workers (competing consumers) -->
+  <line x1="570" y1="165" x2="695" y2="95" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="570" y1="205" x2="695" y2="275" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="635" y="150" text-anchor="middle" font-size="12">deliver</text>
+  <text x="635" y="245" text-anchor="middle" font-size="12">deliver</text>
+
+  <!-- ACK dashed arrows back -->
+  <line x1="695" y1="115" x2="575" y2="175" stroke="#888" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrow-dashed)"/>
+  <line x1="695" y1="255" x2="575" y2="195" stroke="#888" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrow-dashed)"/>
+  <text x="635" y="125" text-anchor="middle" font-size="12" fill="#555">ACK after processing</text>
+</svg>

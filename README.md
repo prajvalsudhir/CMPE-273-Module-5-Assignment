@@ -4,10 +4,7 @@ Two independent Python processes communicating through a RabbitMQ queue.
 
 ## Architecture
 
-```
-producer.py ──► RabbitMQ queue "orders" ──► worker.py (worker-1)
-                                      └──► worker.py (worker-2)
-```
+![Architecture block diagram](diagrams/architecture.svg)
 
 The producer publishes JSON order messages. Each worker is a separate
 process on the same queue, so they are competing consumers: RabbitMQ
