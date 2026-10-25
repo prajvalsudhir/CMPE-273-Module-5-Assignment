@@ -25,13 +25,13 @@
   <rect x="700" y="30" width="200" height="110" rx="8" fill="#dcfce7" stroke="#333" stroke-width="1.5"/>
   <text x="800" y="60" text-anchor="middle" font-size="16" font-weight="bold">Order Worker 1</text>
   <text x="800" y="84" text-anchor="middle" font-size="13">worker.py (worker-1)</text>
-  <text x="800" y="106" text-anchor="middle" font-size="13">processed event_ids (set)</text>
+  <text x="800" y="106" text-anchor="middle" font-size="13">shared processed_events.txt</text>
 
   <!-- Worker 2 -->
   <rect x="700" y="230" width="200" height="110" rx="8" fill="#dcfce7" stroke="#333" stroke-width="1.5"/>
   <text x="800" y="260" text-anchor="middle" font-size="16" font-weight="bold">Order Worker 2</text>
   <text x="800" y="284" text-anchor="middle" font-size="13">worker.py (worker-2)</text>
-  <text x="800" y="306" text-anchor="middle" font-size="13">processed event_ids (set)</text>
+  <text x="800" y="306" text-anchor="middle" font-size="13">shared processed_events.txt</text>
 
   <!-- Arrows: producer -> queue -->
   <line x1="230" y1="185" x2="355" y2="185" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>

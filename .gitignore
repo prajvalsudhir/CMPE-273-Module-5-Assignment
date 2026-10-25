@@ -1,0 +1,3 @@
+processed_events.txt
+processed_events.lock
+__pycache__/
